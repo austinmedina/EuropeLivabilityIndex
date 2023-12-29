@@ -5,13 +5,13 @@
 {% block id %}calcBackground{% endblock %}
 
 {% block content %}
-    <div class="row position-absolute top-50 start-50 translate-middle">
+    <div class="row position-absolute start-50 translate-middle">
         <div class="col">
             <div id="locationSlides" class="carousel slide" data-bs-interval="false" wrap="true">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="card mx-auto" style="width: 18rem;">
-                            <img src="{{ locationURLS[0] }}" class="card-img-top" alt="...">
+                        <div class="card mx-auto">
+                            <img src="{{ locationURLS[0] }}" class="card-img-top img-fluid d-block" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ top10.iloc[0][0] }}, {{ top10.iloc[0][1] }}</h5>
                                 <a href="#" class="btn btn-primary">Wikipedia</a>
@@ -20,8 +20,8 @@
                     </div>
                     {% for index, row in top10.iloc[1:].iterrows() %}
                         <div class="carousel-item">
-                            <div class="card mx-auto" style="width: 18rem;">
-                                <img src="{{ locationURLS[index] }}" class="card-img-top" alt="...">
+                            <div class="card mx-auto">
+                                <img src="{{ locationURLS[index] }}" class="card-img-top img-fluid d-block" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ row.iloc[0] }}, {{ row.iloc[1] }}</h5>
                                     <a href="#" class="btn btn-primary">Wikipedia</a>
