@@ -1,0 +1,74 @@
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #343a40; /* Customize the background color for the navbar */
+    padding: 10px 20px; /* Add padding for better spacing */
+}
+
+.navbar-brand {
+    margin-right: auto;
+    color: #ffffff; /* Customize the font color for the page title */
+}
+
+.navbar-toggler {
+    margin-left: auto;
+    color: #ffffff; /* Customize the font color for the toggler icon */
+}
+
+.navbar-toggler:hover {
+    color: #ba0b0b;
+}
+
+/* Navigation link styles */
+a.nav-link {
+    color: #ffffff;
+}
+
+a.nav-link:hover {
+    color: #ba0b0b;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+ 
+body {
+    margin: 0; /* Remove default margin */
+}
+
+/* Form container styles */
+#calcBackground {
+    background-image: url("../images/alps.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-top: 20px;
+}
+
+.content {
+    background-color: white;
+}
+
+.calculatorForm {
+    background-color: rgba(156, 156, 156, 0.712);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+.carousel-inner img {
+    margin: auto;
+}

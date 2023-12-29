@@ -1,0 +1,117 @@
+{% extends 'navBar.html' %}
+
+{% block pageTitle %}Calculator{% endblock %}
+
+{% block id %}calcBackground{% endblock %}
+
+{% block content %}
+    
+    <div class="calculatorForm">
+        <form action="{{ url_for('livabilityIndex') }}" method="post", class="row form-container">
+            <!-- Temperature Form Group -->
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="unitTemp">Select Preferred Unit of Temperature</label>
+                    <select class="form-select" aria-label="Default select example" name="unitTemp" id="unitTemp">
+                        <option value="Fahrenheit">Fahrenheit</option>
+                        <option value="Celsius">Celsius</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="springTemp">Spring Temperature:</label>
+                    <input type="number" class="form-control" id="springTemp" name="springTemp" value="{{ request.form['springTemp'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="summerTemp">Summer Temperature:</label>
+                    <input type="number" class="form-control" id="summerTemp" name="summerTemp" value="{{ request.form['summerTemp'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="fallTemp">Fall Temperature:</label>
+                    <input type="number" class="form-control" id="fallTemp" name="fallTemp" value="{{ request.form['fallTemp'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="winterTemp">Winter Temperature:</label>
+                    <input type="number" class="form-control" id="winterTemp" name="winterTemp" value="{{ request.form['winterTemp'] }}">
+                </div>
+            </div>
+
+            <!-- Snowfall Form Group -->
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="unitSnow">Select Preferred Unit for Snowfall</label>
+                    <select class="form-select" aria-label="Default select example" name="unitSnow" id="unitSnow">
+                        <option value="Inches">Inches</option>
+                        <option value="Centimeters">Centimeters</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="springSnow">Spring Snowfall:</label>
+                    <input type="number" class="form-control" id="springSnow" name="springSnow" value="{{ request.form['springSnow'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="summerSnow">Summer Snowfall:</label>
+                    <input type="number" class="form-control" id="summerSnow" name="summerSnow" value="{{ request.form['summerSnow'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="fallSnow">Fall Snowfall:</label>
+                    <input type="number" class="form-control" id="fallSnow" name="fallSnow" value="{{ request.form['fallSnow'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="winterSnow">Winter Snowfall:</label>
+                    <input type="number" class="form-control" id="winterSnow" name="winterSnow" value="{{ request.form['winterSnow'] }}">
+                </div>
+            </div>
+
+            <!-- Rainfall Form Group -->
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="unitRain">Select Preferred Unit for Rainfall</label>
+                    <select class="form-select" aria-label="Default select example" name="unitRain" id="unitRain">
+                        <option value="Inches">Inches</option>
+                        <option value="Centimeters">Centimeters</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="springRain">Spring Rainfall:</label>
+                    <input type="number" class="form-control" id="springRain" name="springRain" value="{{ request.form['springRain'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="summerRain">Summer Rainfall:</label>
+                    <input type="number" class="form-control" id="summerRain" name="summerRain" value="{{ request.form['summerRain'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="fallRain">Fall Rainfall:</label>
+                    <input type="number" class="form-control" id="fallRain" name="fallRain" value="{{ request.form['fallRain'] }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="winterRain">Winter Rainfall:</label>
+                    <input type="number" class="form-control" id="winterRain" name="winterRain" value="{{ request.form['winterRain'] }}">
+                </div>
+            </div>
+            
+            <div class="alerts">
+                {% for message in get_flashed_messages() %}
+                    <div class="'alert alert-danger" role="alert">{{ message }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-12 mt-3 text-center">
+                <button type="submit" class="btn btn-primary">Calculate Score</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+
+        </form>
+    </div>
+{% endblock %}

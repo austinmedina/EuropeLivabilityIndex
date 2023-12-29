@@ -1,0 +1,7 @@
+**/*.txt
+
+.conda
+
+__pycache__
+
+Data

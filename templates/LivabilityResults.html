@@ -1,0 +1,46 @@
+{% extends 'navBar.html' %}
+
+{% block pageTitle %}Results{% endblock %}
+
+{% block id %}calcBackground{% endblock %}
+
+{% block content %}
+    <div class="row position-absolute top-50 start-50 translate-middle">
+        <div class="col">
+            <div id="locationSlides" class="carousel slide" data-bs-interval="false" wrap="true">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card mx-auto" style="width: 18rem;">
+                            <img src="{{ locationURLs[0] }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ top10.iloc[0][0] }}, {{ top10.iloc[0][1] }}</h5>
+                                <a href="#" class="btn btn-primary">Wikipedia</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% for index, row in top10.iloc[1:].iterrows() %}
+                        <div class="carousel-item">
+                            <div class="card mx-auto" style="width: 18rem;">
+                                <img src="{{ locationURLs[index] }}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ row.iloc[0] }}, {{ row.iloc[1] }}</h5>
+                                    <a href="#" class="btn btn-primary">Wikipedia</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#locationSlides" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#locationSlides" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
