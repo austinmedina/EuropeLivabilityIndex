@@ -45,22 +45,14 @@ def livabilityIndex():
                                    [spring_snow, summer_snow, fall_snow, winter_snow], 
                                    [spring_rain, summer_rain, fall_rain, winter_rain], 
                                    [unit_temp, unit_snow, unit_rain]]
-         return redirect(url_for('getLocationElements'))
+         return redirect(url_for('showResults'))
    
    return render_template("LivabilityCalculator.html")
 
 @app.route("/showResults", methods = ["GET", "POST"])
 def showResults():
-   top10 = session['top10']
-   locationURLS = session['locationURLS']
-   return render_template('LivabilityResults.html', top10=top10, locationURLS=locationURLS)
-
-@app.route("/showResults/getLocationElements", methods = ["GET", "POST"])
-def getLocationElements():
-
    userChoices = session['userChoices']
    top10=runLivabilityIndex(userChoices)
-   session['top10'] = top10
 
    locations = []
    for index, row in top10.iterrows():
@@ -69,24 +61,19 @@ def getLocationElements():
       temp.append(row[1].replace(' ', '%20'))
       locations.append(temp)
    
-   print("LOOKS HERE FOR THE LOCATIONS AHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
-   print(locations)
    url = "https://api.unsplash.com/search/photos"
    locationURLS = []
 
    for loc in locations: 
       query = loc[0] + "%20" + loc[1] + "%20nature"
-      print("GOT HERE!!!!!!!!!!!!!!!!!!!!!!")
-      print(query)
       params = {'query': query, 'client_id':'EGNZwSaZsNgcA6Ffy-93TRcHkZNHH0lNaGXSE2miloM', 'per_page':'1', 'order_by':'relevent'}
       unsplash = requests.get(url, params=params, allow_redirects=True)
 
       if (unsplash.status_code == 200):
          us = unsplash.json()
          locationURLS.append(us['results'][0]['urls']['raw'])
-   
-   session['locationURLS'] = locationURLS
-   return redirect(url_for('showResults'))
+
+   return render_template('LivabilityResults.html', top10=top10, locationURLS=locationURLS)
 
 @app.route("/about", methods = ["GET", "POST"])
 def about():

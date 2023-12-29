@@ -46,5 +46,5 @@ def runLivabilityIndex(userChoices):
     scoresRegion = scoresRegion.sort_values(by=['SCORE'])
     scoresRegion = scoresRegion.drop(columns=['SCORE'])
     scoresRegion = scoresRegion.reset_index()
-    return scoresRegion.iloc[:1]
+    return scoresRegion.iloc[:10]
     
