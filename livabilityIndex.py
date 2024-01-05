@@ -71,7 +71,10 @@ def showResults():
 
       if (unsplash.status_code == 200):
          us = unsplash.json()
-         locationURLS.append(us['results'][0]['urls']['raw'])
+         if (us['total'] != 0):
+            locationURLS.append(us['results'][0]['urls']['raw'])
+         else:
+            locationURLS.append('#')
 
    return render_template('LivabilityResults.html', top10=top10, locationURLS=locationURLS)
 
