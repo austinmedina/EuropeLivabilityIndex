@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, url_for, flash, redirect, ses
 import pandas as pd
 import requests
 from Weather.computeWeatherscore import runLivabilityIndex
+from Weather.setup.API_KEYS import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'boop'
@@ -66,7 +67,7 @@ def showResults():
 
    for loc in locations: 
       query = loc[0] + "%20" + loc[1] + "%20nature"
-      params = {'query': query, 'client_id':'EGNZwSaZsNgcA6Ffy-93TRcHkZNHH0lNaGXSE2miloM', 'per_page':'1', 'order_by':'relevent'}
+      params = {'query': query, 'client_id':client_id, 'per_page':'1', 'order_by':'relevent'}
       unsplash = requests.get(url, params=params, allow_redirects=True)
 
       if (unsplash.status_code == 200):
