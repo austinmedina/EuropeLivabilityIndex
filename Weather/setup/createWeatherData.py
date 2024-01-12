@@ -86,7 +86,6 @@ def readStationData():
 
 #commented out to avoid accidental API calls that cost money
 # def getLocation(lati, long):
-
 #     lat = lati.split(':')
 #     latitude = float(lat[0]) + (int(lat[1])/60) + (int(lat[2])/3600)
 #     lng = long.split(':')
