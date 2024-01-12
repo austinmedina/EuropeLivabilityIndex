@@ -85,7 +85,6 @@ def readStationData():
 
 #commented out to avoid accidental API calls that cost money
 # def getLocation(lati, long):
-#     API_KEY = 'AIzaSyCt4xS1ED90qZjG2MpmznJu0ENQ2hl3z9Y'
 
 #     lat = lati.split(':')
 #     latitude = float(lat[0]) + (int(lat[1])/60) + (int(lat[2])/3600)
